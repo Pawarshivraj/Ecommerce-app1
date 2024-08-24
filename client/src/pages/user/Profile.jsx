@@ -7,6 +7,7 @@ import Layout from "./../../components/Layout/Layout";
 import UserMenu from "./../../components/Layout/UserMenu";
 import { useAuth } from "../../context/auth";
 import "../../styles/AuthStyles.css";
+import { BASE_URL } from "../../api";
 
 const Profile = () => {
   const [auth, setAuth] = useAuth();
@@ -31,7 +32,7 @@ const Profile = () => {
     e.preventDefault();
 
     try {
-      const { data } = await axios.put("http://localhost:8080/auth/profile", {
+      const { data } = await axios.put(`${BASE_URL}/auth/profile`, {
         name,
         email,
         phone,

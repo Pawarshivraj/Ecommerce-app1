@@ -109,7 +109,7 @@ const CartPage = () => {
               <div className="row card p-3 flex-row mb-3 ">
                 <div className="col-md-4">
                   <img
-                    src={`http://localhost:8080/product/product-photo/${p._id}`}
+                    src={`${BASE_URL}/product/product-photo/${p._id}`}
                     className="card-img-top "
                     style={{ objectFit: "cover" }}
                     width={"200px"}

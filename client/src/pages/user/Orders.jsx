@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import axios from "axios";
 
+
 import UserMenu from "../../components/Layout/UserMenu";
 import Layout from "./../../components/Layout/Layout";
 import { useAuth } from "../../context/auth";
+import { BASE_URL } from "../../api";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
@@ -12,7 +14,7 @@ const Orders = () => {
   
   const getOrders = async () => {
     try {
-      const { data } = await axios.get("http://localhost:8080/auth/orders");
+      const { data } = await axios.get(`${BASE_URL}/auth/orders`);
       setOrders(data);
     } catch (error) {
       console.log(error);
@@ -63,7 +65,7 @@ const Orders = () => {
                       <div className="row card p-3 flex-row mb-3 ">
                         <div className="col-md-4">
                           <img
-                            src={`http://localhost:8080/product/product-photo/${p._id}`}
+                            src={`${BASE_URL}/product/product-photo/${p._id}`}
                             className="card-img-top "
                             style={{ objectFit: "cover" }}
                             width={"200px"}
