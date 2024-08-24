@@ -18,9 +18,13 @@ mongoDB();
 //rest object
 const app = express();
 
+const corsOptions = {
+    origin: 'https://ecommerce-app-2024-pi.vercel.app',
+    optionsSuccessStatus: 200 // Some legacy browsers choke on 204
+  };
 //middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(morgan('dev'));
 
 //routes
